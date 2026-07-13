@@ -24,7 +24,6 @@ Search the codebase for `[` to find bracketed placeholders, or update these:
 - **Business name** — currently set to "Hello Home Buyers" as the display/trading
   name throughout. Confirm this is correct, or find-and-replace it.
 - **Legal business name / NC registration details** — `about.html`
-- **Email address** — footer on every page, `contact.html`, `privacy-policy.html`
 - **Business hours** — `contact.html`
 - **Domain name** — `robots.txt`, `sitemap.xml` (`[YOUR-DOMAIN]`)
 - **Formspree form IDs** — `leave-a-review.html`, `request-an-offer.html`,
