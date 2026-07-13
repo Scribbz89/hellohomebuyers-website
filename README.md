@@ -70,10 +70,12 @@ How it works:
    `render.yaml` blueprint (**New +** → **Blueprint**, same repo), or
    manually: **New +** → **Web Service** → this repo → **Root Directory**
    `server` → Build Command `npm install` → Start Command `npm start`.
-4. In that service's **Environment** settings, add `RESEND_API_KEY` (the key
-   from step 2). `NOTIFY_EMAIL`, `FROM_EMAIL`, and `ALLOWED_ORIGIN` already
-   have sensible defaults in `render.yaml` — change `NOTIFY_EMAIL` there if
-   you want submissions sent somewhere other than `lewis@hellohomebuyers.net`.
+4. If the service was created via the Blueprint, set `RESEND_API_KEY` in its
+   **Environment** tab (it's `sync: false` in `render.yaml`, so Render won't
+   set it automatically). If it was created manually as a plain **Web
+   Service** instead (as this one currently is), `render.yaml`'s env vars
+   aren't applied at all — set `RESEND_API_KEY`, `NOTIFY_EMAIL`, `FROM_EMAIL`,
+   and `ALLOWED_ORIGIN` directly in that service's Environment tab.
 5. Confirm the deployed service's URL matches
    `https://hellohomebuyers-api.onrender.com` (Render assigns this from the
    service name; if it's already taken, Render will suffix it — update the
@@ -82,9 +84,11 @@ How it works:
 
 **Resend sandbox limitation:** without verifying a sending domain in Resend,
 the shared `onboarding@resend.dev` "from" address can only deliver to the
-email address your Resend account is registered with. If `NOTIFY_EMAIL` is a
-different address, verify `hellohomebuyers.net` in Resend (adds a few DNS
-records) so it can send to any recipient.
+email address your Resend account is registered with. `NOTIFY_EMAIL` is
+currently set to `lsleadgeneration@gmail.com` (the Resend account's email)
+for that reason. To send to `lewis@hellohomebuyers.net` instead, verify
+`hellohomebuyers.net` as a domain in Resend (adds a few DNS records), then
+update `NOTIFY_EMAIL` back.
 
 ## Managing Reviews (no database)
 
