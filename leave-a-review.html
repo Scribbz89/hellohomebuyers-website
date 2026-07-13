@@ -38,13 +38,7 @@
         Your property address, phone number, and email address are <strong>never published publicly</strong>. They are only used to verify your transaction. Reviews are moderated and typically appear within a few business days of approval.
       </div>
 
-      <!--
-        TODO: Replace the form action below with your own Formspree endpoint
-        (https://formspree.io) or another form backend, since this is a static
-        site with no server. Create a free form and paste its endpoint URL here.
-      -->
-      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" enctype="multipart/form-data">
-        <input type="hidden" name="_subject" value="New review submission — Hello Home Buyers">
+      <form action="https://hellohomebuyers-api.onrender.com/api/review" method="POST" enctype="multipart/form-data" data-api="https://hellohomebuyers-api.onrender.com/api/review" data-status="form-status">
         <!-- Honeypot spam field: real users won't see or fill this in -->
         <div style="position:absolute; left:-9999px;" aria-hidden="true">
           <label for="company">Leave this field blank</label>
@@ -161,6 +155,7 @@
           </div>
         </fieldset>
 
+        <div id="form-status" class="form-note" hidden></div>
         <button type="submit" class="btn btn-primary btn-block">Submit Review</button>
         <p class="small text-center" style="margin-top:14px;">Submitted reviews enter a moderation queue and are not published automatically.</p>
       </form>

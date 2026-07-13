@@ -34,13 +34,7 @@
         <p>Tell us about the property and your situation. Submitting this form does not guarantee an offer and does not create an agency relationship.</p>
       </div>
 
-      <!--
-        TODO: Replace the form action below with your own Formspree endpoint
-        (https://formspree.io) or another form backend, since this is a static
-        site with no server.
-      -->
-      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-        <input type="hidden" name="_subject" value="New offer request — Hello Home Buyers">
+      <form action="https://hellohomebuyers-api.onrender.com/api/request-offer" method="POST" data-api="https://hellohomebuyers-api.onrender.com/api/request-offer" data-status="form-status">
         <div style="position:absolute; left:-9999px;" aria-hidden="true">
           <label for="website">Leave this field blank</label>
           <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
@@ -239,6 +233,7 @@
           </div>
         </fieldset>
 
+        <div id="form-status" class="form-note" hidden></div>
         <button type="submit" class="btn btn-primary btn-block">Submit Property Details</button>
         <p class="small text-center" style="margin-top:14px;">Submitting this form does not guarantee an offer, a specific price, or a specific closing timeline. Every transaction is subject to a written purchase agreement.</p>
       </form>

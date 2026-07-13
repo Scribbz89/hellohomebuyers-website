@@ -57,13 +57,7 @@
 
         <div class="card">
           <h3>Send Us a Message</h3>
-          <!--
-            TODO: Replace the form action below with your own Formspree endpoint
-            (https://formspree.io) or another form backend, since this is a static
-            site with no server.
-          -->
-          <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-            <input type="hidden" name="_subject" value="New contact form message — Hello Home Buyers">
+          <form action="https://hellohomebuyers-api.onrender.com/api/contact" method="POST" data-api="https://hellohomebuyers-api.onrender.com/api/contact" data-status="form-status">
             <div style="position:absolute; left:-9999px;" aria-hidden="true">
               <label for="company2">Leave this field blank</label>
               <input type="text" id="company2" name="company2" tabindex="-1" autocomplete="off">
@@ -88,6 +82,7 @@
               <input type="checkbox" id="privacyConsent" name="privacyConsent" value="yes" required>
               <label for="privacyConsent">I have read and agree to the <a href="/privacy-policy" target="_blank">Privacy Policy</a>. *</label>
             </div>
+            <div id="form-status" class="form-note" hidden></div>
             <button type="submit" class="btn btn-primary btn-block">Send Message</button>
           </form>
         </div>

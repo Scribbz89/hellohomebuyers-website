@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
   initAccordions();
   initStarSelectors();
   initReviewsPage();
+  initApiForms();
 });
 
 /* ---------- Mobile nav ---------- */
@@ -153,4 +154,66 @@ function initReviewsPage() {
     div.textContent = str == null ? "" : String(str);
     return div.innerHTML;
   }
+}
+
+/* ---------- Forms wired to the in-house API (contact, request-an-offer, leave-a-review) ---------- */
+function initApiForms() {
+  var forms = document.querySelectorAll("form[data-api]");
+  forms.forEach(function (form) {
+    var statusEl = document.getElementById(form.getAttribute("data-status"));
+    var submitBtn = form.querySelector('button[type="submit"]');
+    var originalBtnText = submitBtn ? submitBtn.textContent : "";
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Sending...";
+      }
+      if (statusEl) {
+        statusEl.hidden = true;
+        statusEl.classList.remove("error");
+      }
+
+      fetch(form.getAttribute("data-api"), {
+        method: "POST",
+        body: new FormData(form),
+      })
+        .then(function (res) {
+          return res.json().then(function (data) {
+            return { ok: res.ok && data.ok, error: data.error };
+          });
+        })
+        .then(function (result) {
+          if (!statusEl) return;
+          statusEl.hidden = false;
+          if (result.ok) {
+            statusEl.classList.remove("error");
+            statusEl.textContent =
+              "Thanks — we've received your submission and will be in touch.";
+            form.reset();
+          } else {
+            statusEl.classList.add("error");
+            statusEl.textContent =
+              result.error ||
+              "Something went wrong. Please try again or contact us directly.";
+          }
+        })
+        .catch(function () {
+          if (statusEl) {
+            statusEl.hidden = false;
+            statusEl.classList.add("error");
+            statusEl.textContent =
+              "Something went wrong. Please check your connection and try again.";
+          }
+        })
+        .finally(function () {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalBtnText;
+          }
+        });
+    });
+  });
 }

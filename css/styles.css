@@ -541,6 +541,12 @@ legend {
   margin-bottom: 20px;
 }
 
+.form-note.error {
+  background: #fbeceb;
+  border-color: #e3b3ac;
+  color: #7a2e22;
+}
+
 .form-note {
   background: #eef3f0;
   border: 1px solid #d3e1da;

@@ -1,8 +1,10 @@
-# Hello Home Buyers — Static Website
+# Hello Home Buyers — Static Website + Form API
 
-A plain HTML/CSS/JS static website (no build step, no backend) for a North Carolina
-real estate acquisitions/wholesaling business. Open `index.html` directly in a
-browser, or deploy the folder as-is to any static host.
+A plain HTML/CSS/JS static website (no build step) for a North Carolina real
+estate acquisitions/wholesaling business, plus a small Node API (`server/`)
+that receives the three forms and emails you each submission. Open
+`index.html` directly in a browser for the static pages, or deploy as
+described below.
 
 ## Pages
 
@@ -16,6 +18,8 @@ browser, or deploy the folder as-is to any static host.
 - `contact.html` — Contact page + form
 - `privacy-policy.html`, `terms-of-use.html`, `disclosure.html` — legal pages (drafts)
 - `404.html` — not found page
+- `server/` — Node/Express API that receives the three forms above and emails
+  submissions via Resend (see "Forms" below)
 
 ## Before Going Live: Required Placeholders
 
@@ -26,35 +30,61 @@ Search the codebase for `[` to find bracketed placeholders, or update these:
 - **Legal business name / NC registration details** — `about.html`
 - **Business hours** — `contact.html`
 - **Domain name** — `robots.txt`, `sitemap.xml` (`[YOUR-DOMAIN]`)
-- **Formspree form IDs** — `leave-a-review.html`, `request-an-offer.html`,
-  `contact.html` (see "Forms" below)
+- **RESEND_API_KEY** — set as a secret environment variable on the
+  `hellohomebuyers-api` Render service (see "Forms" below); not committed to
+  the repo
 - **Attorney review** — `privacy-policy.html`, `terms-of-use.html`,
   `disclosure.html` are practical drafts, not reviewed legal documents. Have a
   North Carolina attorney review before launch.
 - **Staff details** — `about.html` currently only lists first names (Lewis, Matt)
   and their roles, per instructions not to invent surnames/bios/photos.
 
-## Forms (no backend — uses Formspree)
+## Forms (in-house API, no third-party form service)
 
-Since this is a static site with no server, the three forms (`leave-a-review.html`,
-`request-an-offer.html`, `contact.html`) post to placeholder Formspree endpoints:
+The three forms (`contact.html`, `request-an-offer.html`, `leave-a-review.html`)
+submit via JavaScript (see `initApiForms()` in `js/main.js`) to a small
+Node/Express API in `server/`, deployed as a separate Render service named
+`hellohomebuyers-api` (see `render.yaml`). No Formspree or other third-party
+form service is used — submissions never leave infrastructure you control.
 
-```
-https://formspree.io/f/YOUR_FORM_ID
-```
+How it works:
 
-To connect them:
+1. Each form's JS intercepts submit, POSTs the form data (as `FormData`, so
+   the optional photo upload on the review form works too) to one of:
+   `/api/contact`, `/api/request-offer`, `/api/review`.
+2. The API validates required fields, rejects spam caught by the hidden
+   honeypot field, and emails you the submission via
+   [Resend](https://resend.com)'s free tier (3,000 emails/month).
+3. You get an email per submission with all fields laid out in a table, and
+   `reply-to` set to the submitter's email so you can just hit reply.
+4. There is no database and no admin panel — email is the record. You still
+   need to manually decide whether to publish a review (see below).
 
-1. Create a free account at [formspree.io](https://formspree.io).
-2. Create one form per page (or reuse one form for all three).
-3. Replace `YOUR_FORM_ID` in each form's `action` attribute with your real form ID.
-4. Formspree will email you each submission. You still need to manually decide
-   whether to publish a review (see below) — there is no automated moderation
-   queue since there's no database.
+**Setting it up:**
 
-Each form includes a hidden honeypot field for basic spam filtering. Formspree
-also offers built-in reCAPTCHA support if you want stronger spam protection —
-enable it from your Formspree form settings.
+1. Sign up free at [resend.com](https://resend.com) (use the email address
+   you want notifications sent to, or verify your own domain later for more
+   flexibility — see the sandbox note below).
+2. Grab an API key from the Resend dashboard.
+3. Deploy `server/` as a Render **Web Service** — either via the
+   `render.yaml` blueprint (**New +** → **Blueprint**, same repo), or
+   manually: **New +** → **Web Service** → this repo → **Root Directory**
+   `server` → Build Command `npm install` → Start Command `npm start`.
+4. In that service's **Environment** settings, add `RESEND_API_KEY` (the key
+   from step 2). `NOTIFY_EMAIL`, `FROM_EMAIL`, and `ALLOWED_ORIGIN` already
+   have sensible defaults in `render.yaml` — change `NOTIFY_EMAIL` there if
+   you want submissions sent somewhere other than `lewis@hellohomebuyers.net`.
+5. Confirm the deployed service's URL matches
+   `https://hellohomebuyers-api.onrender.com` (Render assigns this from the
+   service name; if it's already taken, Render will suffix it — update the
+   `data-api`/`action` URLs in the three form pages to match whatever URL
+   Render actually gives you).
+
+**Resend sandbox limitation:** without verifying a sending domain in Resend,
+the shared `onboarding@resend.dev` "from" address can only deliver to the
+email address your Resend account is registered with. If `NOTIFY_EMAIL` is a
+different address, verify `hellohomebuyers.net` in Resend (adds a few DNS
+records) so it can send to any recipient.
 
 ## Managing Reviews (no database)
 
@@ -98,35 +128,40 @@ and you've decided to publish it:
 
 ## Deployment (GitHub + Render)
 
-This repo includes a `render.yaml` blueprint, so Render can deploy it with no
-manual configuration:
+`render.yaml` defines **two** Render services as a single blueprint:
+
+- `hello-home-buyers` — the static site (repo root)
+- `hellohomebuyers-api` — the form-intake API (`server/` subdirectory)
+
+To deploy both at once:
 
 1. Push this repo to GitHub (see below).
 2. In the Render dashboard, click **New +** → **Blueprint**, and select this
-   GitHub repo. Render will read `render.yaml` and create a Static Site
-   service automatically (no build command, publish directory is the repo root).
-3. Alternatively, skip the blueprint and create the static site manually:
-   **New +** → **Static Site** → select the repo → leave **Build Command**
-   blank → set **Publish Directory** to `.`.
-4. Once deployed, Render gives you a `*.onrender.com` URL. You can attach a
-   custom domain from the service's **Settings** tab.
+   GitHub repo. Render reads `render.yaml` and creates both services.
+3. Set `RESEND_API_KEY` on the `hellohomebuyers-api` service (see "Forms"
+   above) — it's marked `sync: false` in the blueprint, so Render won't
+   create it automatically; you add it manually in that service's
+   Environment tab.
+4. Each service gets its own `*.onrender.com` URL. You can attach a custom
+   domain to either from its **Settings** tab.
 
-Every push to the connected branch will auto-redeploy.
+Every push to the connected branch auto-redeploys both services.
 
-No build step, `npm install`, or server process is required — this is plain
-HTML/CSS/JS.
+The static site itself still needs no build step. The API needs Node and
+`npm install` (handled automatically by Render per `render.yaml`).
 
 ## What's Intentionally Not Included
 
 Per the brief this site is based on, the following were deliberately left out
-because they require a real backend/database (which conflicts with "static
-site, no app"):
+because they'd require a database, not just a form-intake API:
 
 - Admin dashboard / login
-- Automated review moderation queue
-- Lead database / CRM
-- Server-side validation, rate limiting, CSRF protection
+- Automated review moderation queue (moderation is manual — see "Managing
+  Reviews" above)
+- CRM / lead database (the API just emails you each submission; wiring it
+  into an actual CRM instead of/alongside email is a follow-up, once the
+  CRM's intake endpoint is known)
 
-If you later want automated review moderation or a lead pipeline, that would
-require adding a backend (e.g., a small serverless API + database), which is a
-separate, larger project from this static site.
+The form API does include basic server-side validation, a honeypot spam
+field, and rate limiting (20 requests per 15 minutes per IP) — see
+`server/index.js`.
