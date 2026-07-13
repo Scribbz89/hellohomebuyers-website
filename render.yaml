@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: hello-home-buyers
+    runtime: static
+    buildCommand: ""
+    staticPublishPath: .

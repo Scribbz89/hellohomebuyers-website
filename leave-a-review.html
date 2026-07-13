@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leave a Review | Hello Home Buyers</title>
+<meta name="description" content="Sold your property to Hello Home Buyers? Share your experience to help future sellers understand our process.">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="nav-wrap">
+    <a class="brand" href="index.html">Hello <span>Home Buyers</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="how-it-works.html">How It Works</a></li>
+      <li><a href="reviews.html">Reviews</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a class="nav-cta" href="request-an-offer.html">Request an Offer</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+  <section class="section" style="padding-top:48px;">
+    <div class="container" style="max-width:760px;">
+      <div class="section-title" style="margin-bottom:10px;">
+        <h1>Leave a Review</h1>
+        <p>If you've sold a property to us, we'd genuinely appreciate you sharing your experience. Every submission is reviewed by a real person before publishing.</p>
+      </div>
+
+      <div class="form-note">
+        Your property address, phone number, and email address are <strong>never published publicly</strong>. They are only used to verify your transaction. Reviews are moderated and typically appear within a few business days of approval.
+      </div>
+
+      <!--
+        TODO: Replace the form action below with your own Formspree endpoint
+        (https://formspree.io) or another form backend, since this is a static
+        site with no server. Create a free form and paste its endpoint URL here.
+      -->
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="_subject" value="New review submission — Hello Home Buyers">
+        <!-- Honeypot spam field: real users won't see or fill this in -->
+        <div style="position:absolute; left:-9999px;" aria-hidden="true">
+          <label for="company">Leave this field blank</label>
+          <input type="text" id="company" name="company" tabindex="-1" autocomplete="off">
+        </div>
+
+        <fieldset>
+          <legend>Your Information</legend>
+          <div class="form-row">
+            <div class="field">
+              <label for="firstName">First name *</label>
+              <input type="text" id="firstName" name="firstName" required>
+            </div>
+            <div class="field">
+              <label for="lastName">Last name *</label>
+              <input type="text" id="lastName" name="lastName" required>
+              <div class="hint">Only your first name and last initial will ever be published.</div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="email">Email address *</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="field">
+              <label for="phone">Phone number *</label>
+              <input type="tel" id="phone" name="phone" required>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Property Details</legend>
+          <div class="field">
+            <label for="propertyAddress">Property address *</label>
+            <input type="text" id="propertyAddress" name="propertyAddress" required>
+            <div class="hint">Used only to verify your transaction. Never published.</div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="city">City *</label>
+              <input type="text" id="city" name="city" required>
+            </div>
+            <div class="field">
+              <label for="county">County *</label>
+              <input type="text" id="county" name="county" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="propertyType">Property type</label>
+              <select id="propertyType" name="propertyType">
+                <option value="Single-family house">Single-family house</option>
+                <option value="Vacant house">Vacant house</option>
+                <option value="Tenant-occupied property">Tenant-occupied property</option>
+                <option value="Inherited property">Inherited property</option>
+                <option value="Land">Land / lot</option>
+                <option value="Mobile home">Mobile home</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="closingDate">Closing date (approximate) *</label>
+              <input type="date" id="closingDate" name="closingDate" required>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Your Review</legend>
+          <div class="field">
+            <label>Star rating *</label>
+            <div class="star-select" data-input="ratingValue">
+              <button type="button" aria-pressed="false" aria-label="1 star">★</button>
+              <button type="button" aria-pressed="false" aria-label="2 stars">★</button>
+              <button type="button" aria-pressed="false" aria-label="3 stars">★</button>
+              <button type="button" aria-pressed="false" aria-label="4 stars">★</button>
+              <button type="button" aria-pressed="false" aria-label="5 stars">★</button>
+            </div>
+            <input type="hidden" id="ratingValue" name="rating" required>
+          </div>
+          <div class="field">
+            <label for="reviewText">Your review *</label>
+            <textarea id="reviewText" name="reviewText" required placeholder="Tell us about your experience working with us..."></textarea>
+          </div>
+          <div class="field">
+            <label for="photo">Optional photo</label>
+            <input type="file" id="photo" name="photo" accept="image/*">
+            <div class="hint">Only include this if you're comfortable — used with your permission only.</div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Permissions &amp; Consent</legend>
+          <div class="checkbox-row">
+            <input type="checkbox" id="permPublishName" name="permissionPublishName" value="yes">
+            <label for="permPublishName">I give permission to publish my first name and last initial with this review.</label>
+          </div>
+          <div class="checkbox-row">
+            <input type="checkbox" id="permPublishLocation" name="permissionPublishLocation" value="yes">
+            <label for="permPublishLocation">I give permission to display my city or county with this review.</label>
+          </div>
+          <div class="checkbox-row">
+            <input type="checkbox" id="permContact" name="permissionContact" value="yes">
+            <label for="permContact">I give permission to be contacted to verify this review.</label>
+          </div>
+          <div class="checkbox-row">
+            <input type="checkbox" id="confirmTruthful" name="confirmTruthful" value="yes" required>
+            <label for="confirmTruthful">I confirm this review is truthful and reflects my own experience. *</label>
+          </div>
+          <div class="checkbox-row">
+            <input type="checkbox" id="privacyConsent" name="privacyConsent" value="yes" required>
+            <label for="privacyConsent">I have read and agree to the <a href="privacy-policy.html" target="_blank">Privacy Policy</a>. *</label>
+          </div>
+        </fieldset>
+
+        <button type="submit" class="btn btn-primary btn-block">Submit Review</button>
+        <p class="small text-center" style="margin-top:14px;">Submitted reviews enter a moderation queue and are not published automatically.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Hello Home Buyers</h4>
+        <p class="small">We work directly with North Carolina property owners considering a direct sale. This website is for informational purposes and does not guarantee an offer or purchase.</p>
+        <p class="small placeholder">[ADD MAILING ADDRESS, IF APPLICABLE]</p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="reviews.html">Seller Reviews</a></li>
+          <li><a href="leave-a-review.html">Leave a Review</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get In Touch</h4>
+        <ul>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="request-an-offer.html">Request an Offer</a></li>
+          <li>Phone: <span class="placeholder">[ADD PHONE NUMBER]</span></li>
+          <li>Email: <span class="placeholder">[ADD EMAIL ADDRESS]</span></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms-of-use.html">Terms of Use</a></li>
+          <li><a href="disclosure.html">Real Estate Disclosure</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Hello Home Buyers. All rights reserved.</span>
+      <span>Serving Durham, Gastonia, Hickory, Mount Holly, Morganton, and surrounding North Carolina areas.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

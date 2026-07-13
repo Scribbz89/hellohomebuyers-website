@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us | Hello Home Buyers</title>
+<meta name="description" content="Get in touch with Hello Home Buyers about your North Carolina property.">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="nav-wrap">
+    <a class="brand" href="index.html">Hello <span>Home Buyers</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="how-it-works.html">How It Works</a></li>
+      <li><a href="reviews.html">Reviews</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+      <li><a class="nav-cta" href="request-an-offer.html">Request an Offer</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+  <section class="section" style="padding-top:48px;">
+    <div class="container">
+      <div class="section-title" style="margin-bottom:10px;">
+        <h1>Contact Us</h1>
+        <p>We're happy to answer questions, even if you're just exploring your options.</p>
+      </div>
+
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>Hello Home Buyers</h3>
+          <p class="small"><strong>Phone:</strong> <span class="placeholder">[ADD PHONE NUMBER]</span></p>
+          <p class="small"><strong>Email:</strong> <span class="placeholder">[ADD EMAIL ADDRESS]</span></p>
+          <p class="small"><strong>Mailing address:</strong> <span class="placeholder">[ADD MAILING ADDRESS, IF APPLICABLE]</span></p>
+          <p class="small"><strong>Business hours:</strong> <span class="placeholder">[ADD BUSINESS HOURS]</span></p>
+          <h4 style="margin-top:20px;">Areas We Serve</h4>
+          <div class="chip-list">
+            <span class="chip">Durham</span>
+            <span class="chip">Gastonia</span>
+            <span class="chip">Hickory</span>
+            <span class="chip">Mount Holly</span>
+            <span class="chip">Morganton</span>
+            <span class="chip">Bessemer City</span>
+            <span class="chip">Rougemont</span>
+            <span class="chip">Valdese</span>
+            <span class="chip">Claremont</span>
+            <span class="chip">Charlotte area</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Send Us a Message</h3>
+          <!--
+            TODO: Replace the form action below with your own Formspree endpoint
+            (https://formspree.io) or another form backend, since this is a static
+            site with no server.
+          -->
+          <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <input type="hidden" name="_subject" value="New contact form message — Hello Home Buyers">
+            <div style="position:absolute; left:-9999px;" aria-hidden="true">
+              <label for="company2">Leave this field blank</label>
+              <input type="text" id="company2" name="company2" tabindex="-1" autocomplete="off">
+            </div>
+            <div class="field">
+              <label for="name">Name *</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div class="field">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone">
+            </div>
+            <div class="field">
+              <label for="message">Message *</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+            <div class="checkbox-row">
+              <input type="checkbox" id="privacyConsent" name="privacyConsent" value="yes" required>
+              <label for="privacyConsent">I have read and agree to the <a href="privacy-policy.html" target="_blank">Privacy Policy</a>. *</label>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+          </form>
+        </div>
+      </div>
+
+      <p class="text-center small" style="margin-top:30px;">Have a specific property in mind? <a href="request-an-offer.html">Request an offer instead &rarr;</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Hello Home Buyers</h4>
+        <p class="small">We work directly with North Carolina property owners considering a direct sale. This website is for informational purposes and does not guarantee an offer or purchase.</p>
+        <p class="small placeholder">[ADD MAILING ADDRESS, IF APPLICABLE]</p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="reviews.html">Seller Reviews</a></li>
+          <li><a href="leave-a-review.html">Leave a Review</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get In Touch</h4>
+        <ul>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="request-an-offer.html">Request an Offer</a></li>
+          <li>Phone: <span class="placeholder">[ADD PHONE NUMBER]</span></li>
+          <li>Email: <span class="placeholder">[ADD EMAIL ADDRESS]</span></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms-of-use.html">Terms of Use</a></li>
+          <li><a href="disclosure.html">Real Estate Disclosure</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Hello Home Buyers. All rights reserved.</span>
+      <span>Serving Durham, Gastonia, Hickory, Mount Holly, Morganton, and surrounding North Carolina areas.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

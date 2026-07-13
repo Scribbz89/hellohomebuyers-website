@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seller Reviews | Hello Home Buyers</title>
+<meta name="description" content="Read genuine, moderated reviews from previous North Carolina sellers who worked with Hello Home Buyers.">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="nav-wrap">
+    <a class="brand" href="index.html">Hello <span>Home Buyers</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="how-it-works.html">How It Works</a></li>
+      <li><a href="reviews.html" class="active">Reviews</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a class="nav-cta" href="request-an-offer.html">Request an Offer</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="section" style="padding-top:48px;">
+    <div class="container">
+      <div class="section-title" style="margin-bottom:10px;">
+        <h1>Seller Reviews</h1>
+        <p>Genuine reviews from previous sellers. Every review is moderated before publishing, and reviews confirmed against a real transaction are marked <strong>Verified Seller</strong>.</p>
+      </div>
+      <p class="text-center small"><a href="leave-a-review.html">Sold a property to us? Leave a review &rarr;</a></p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+
+      <form id="review-filters" class="review-filters" onsubmit="return false;">
+        <div class="field" style="margin-bottom:0;">
+          <label for="filter-rating">Rating</label>
+          <select id="filter-rating" name="rating">
+            <option value="">Any rating</option>
+            <option value="5">5 stars</option>
+            <option value="4">4 stars</option>
+            <option value="3">3 stars</option>
+            <option value="2">2 stars</option>
+            <option value="1">1 star</option>
+          </select>
+        </div>
+        <div class="field" style="margin-bottom:0;">
+          <label for="filter-city">City</label>
+          <select id="filter-city" name="city">
+            <option value="">All cities</option>
+            <option value="Durham">Durham</option>
+            <option value="Gastonia">Gastonia</option>
+            <option value="Hickory">Hickory</option>
+            <option value="Mount Holly">Mount Holly</option>
+            <option value="Morganton">Morganton</option>
+            <option value="Bessemer City">Bessemer City</option>
+            <option value="Rougemont">Rougemont</option>
+            <option value="Valdese">Valdese</option>
+            <option value="Claremont">Claremont</option>
+            <option value="Charlotte">Charlotte area</option>
+          </select>
+        </div>
+        <div class="field" style="margin-bottom:0;">
+          <label for="filter-type">Property Type</label>
+          <select id="filter-type" name="propertyType">
+            <option value="">All property types</option>
+            <option value="Single-family house">Single-family house</option>
+            <option value="Vacant house">Vacant house</option>
+            <option value="Tenant-occupied property">Tenant-occupied property</option>
+            <option value="Inherited property">Inherited property</option>
+            <option value="Land">Land / lot</option>
+            <option value="Mobile home">Mobile home</option>
+          </select>
+        </div>
+        <div class="field" style="margin-bottom:0; align-self:flex-end;">
+          <label style="visibility:hidden;">Verified</label>
+          <div class="checkbox-row" style="margin-bottom:0;">
+            <input type="checkbox" id="verified-only" name="verifiedOnly">
+            <label for="verified-only">Verified only</label>
+          </div>
+        </div>
+      </form>
+
+      <div id="reviews-list" class="grid grid-2">
+        <div class="empty-state">
+          <h3>Loading reviews…</h3>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="notice notice-muted">
+        <strong>How we verify reviews:</strong> Reviews are submitted through our <a href="leave-a-review.html">Leave a Review</a> form and enter a moderation queue. We check the reviewer's contact details and closing information against a genuine transaction before marking a review as verified. Property addresses, phone numbers, and email addresses are never published publicly.
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Hello Home Buyers</h4>
+        <p class="small">We work directly with North Carolina property owners considering a direct sale. This website is for informational purposes and does not guarantee an offer or purchase.</p>
+        <p class="small placeholder">[ADD MAILING ADDRESS, IF APPLICABLE]</p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="reviews.html">Seller Reviews</a></li>
+          <li><a href="leave-a-review.html">Leave a Review</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get In Touch</h4>
+        <ul>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="request-an-offer.html">Request an Offer</a></li>
+          <li>Phone: <span class="placeholder">[ADD PHONE NUMBER]</span></li>
+          <li>Email: <span class="placeholder">[ADD EMAIL ADDRESS]</span></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms-of-use.html">Terms of Use</a></li>
+          <li><a href="disclosure.html">Real Estate Disclosure</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Hello Home Buyers. All rights reserved.</span>
+      <span>Serving Durham, Gastonia, Hickory, Mount Holly, Morganton, and surrounding North Carolina areas.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
