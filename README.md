@@ -26,7 +26,6 @@ Search the codebase for `[` to find bracketed placeholders, or update these:
 - **Legal business name / NC registration details** — `about.html`
 - **Phone number** — footer on every page, `contact.html`
 - **Email address** — footer on every page, `contact.html`, `privacy-policy.html`
-- **Mailing address** — footer on every page, `contact.html`
 - **Business hours** — `contact.html`
 - **Domain name** — `robots.txt`, `sitemap.xml` (`[YOUR-DOMAIN]`)
 - **Formspree form IDs** — `leave-a-review.html`, `request-an-offer.html`,
