@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://[YOUR-DOMAIN]/</loc><priority>1.0</priority></url>
-  <url><loc>https://[YOUR-DOMAIN]/about</loc><priority>0.8</priority></url>
-  <url><loc>https://[YOUR-DOMAIN]/how-it-works</loc><priority>0.8</priority></url>
-  <url><loc>https://[YOUR-DOMAIN]/reviews</loc><priority>0.8</priority></url>
-  <url><loc>https://[YOUR-DOMAIN]/leave-a-review</loc><priority>0.6</priority></url>
-  <url><loc>https://[YOUR-DOMAIN]/request-an-offer</loc><priority>0.9</priority></url>
-  <url><loc>https://[YOUR-DOMAIN]/faq</loc><priority>0.7</priority></url>
-  <url><loc>https://[YOUR-DOMAIN]/contact</loc><priority>0.7</priority></url>
-  <url><loc>https://[YOUR-DOMAIN]/privacy-policy</loc><priority>0.3</priority></url>
-  <url><loc>https://[YOUR-DOMAIN]/terms-of-use</loc><priority>0.3</priority></url>
-  <url><loc>https://[YOUR-DOMAIN]/disclosure</loc><priority>0.4</priority></url>
+  <url><loc>https://www.hellohomebuyers.net/</loc><priority>1.0</priority></url>
+  <url><loc>https://www.hellohomebuyers.net/about</loc><priority>0.8</priority></url>
+  <url><loc>https://www.hellohomebuyers.net/how-it-works</loc><priority>0.8</priority></url>
+  <url><loc>https://www.hellohomebuyers.net/reviews</loc><priority>0.8</priority></url>
+  <url><loc>https://www.hellohomebuyers.net/leave-a-review</loc><priority>0.6</priority></url>
+  <url><loc>https://www.hellohomebuyers.net/request-an-offer</loc><priority>0.9</priority></url>
+  <url><loc>https://www.hellohomebuyers.net/faq</loc><priority>0.7</priority></url>
+  <url><loc>https://www.hellohomebuyers.net/contact</loc><priority>0.7</priority></url>
+  <url><loc>https://www.hellohomebuyers.net/privacy-policy</loc><priority>0.3</priority></url>
+  <url><loc>https://www.hellohomebuyers.net/terms-of-use</loc><priority>0.3</priority></url>
+  <url><loc>https://www.hellohomebuyers.net/disclosure</loc><priority>0.4</priority></url>
 </urlset>

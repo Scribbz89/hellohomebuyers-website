@@ -28,7 +28,6 @@ Search the codebase for `[` to find bracketed placeholders, or update these:
 - **Business name** — currently set to "Hello Home Buyers" as the display/trading
   name throughout. Confirm this is correct, or find-and-replace it.
 - **Legal business name / NC registration details** — `about.html`
-- **Domain name** — `robots.txt`, `sitemap.xml` (`[YOUR-DOMAIN]`)
 - **RESEND_API_KEY** — set as a secret environment variable on the
   `hellohomebuyers-api` Render service (see "Forms" below); not committed to
   the repo
