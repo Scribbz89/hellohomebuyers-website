@@ -123,6 +123,9 @@ p { margin: 0 0 1em; }
   font-size: 1.25rem;
   font-weight: 700;
   letter-spacing: 0.2px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .brand:hover {
