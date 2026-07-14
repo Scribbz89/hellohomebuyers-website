@@ -63,6 +63,11 @@ h1 { font-size: 2.4rem; }
 h2 { font-size: 1.8rem; }
 h3 { font-size: 1.3rem; }
 
+@media (max-width: 600px) {
+  h1 { font-size: 1.9rem; }
+  h2 { font-size: 1.5rem; }
+}
+
 p { margin: 0 0 1em; }
 
 .container {
@@ -530,7 +535,9 @@ legend {
   border: none;
   cursor: pointer;
   color: #d8d2c2;
-  padding: 0;
+  padding: 8px;
+  margin: -8px;
+  line-height: 1;
 }
 
 .star-select button.active,
