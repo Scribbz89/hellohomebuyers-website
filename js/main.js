@@ -140,7 +140,7 @@ function initReviewsPage() {
         "<strong>" + escapeHtml(r.firstName) + " " + escapeHtml(r.lastInitial) + ".</strong>" +
         "<span>" + escapeHtml(r.city || "") + "</span>" +
         "<span>" + escapeHtml(r.propertyType || "") + "</span>" +
-        "<span>Closed " + escapeHtml(r.closingMonthYear || "") + "</span>" +
+        (r.closingMonthYear ? "<span>Closed " + escapeHtml(r.closingMonthYear) + "</span>" : "") +
         badge +
         "</div>" +
         response;

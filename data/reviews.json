@@ -1,1 +1,10 @@
-[]
+[
+  {
+    "firstName": "Phil",
+    "lastInitial": "R.",
+    "rating": 5,
+    "reviewText": "Easy to work with. Upfront and honest, no hidden costs or surprises",
+    "verified": true,
+    "status": "published"
+  }
+]
