@@ -12,7 +12,8 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 const NOTIFY_EMAIL = process.env.NOTIFY_EMAIL || "lewis@hellohomebuyers.net";
 const FROM_EMAIL = process.env.FROM_EMAIL || "onboarding@resend.dev";
 const ALLOWED_ORIGINS = (
-  process.env.ALLOWED_ORIGIN || "https://hellohomebuyers-website.onrender.com"
+  process.env.ALLOWED_ORIGIN ||
+  "https://www.hellohomebuyers.net,https://hellohomebuyers.net"
 )
   .split(",")
   .map((s) => s.trim());
