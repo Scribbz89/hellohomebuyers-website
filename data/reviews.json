@@ -1,9 +1,20 @@
 [
   {
     "firstName": "Phil",
-    "lastInitial": "R.",
+    "lastInitial": "R",
     "rating": 5,
     "reviewText": "Easy to work with. Upfront and honest, no hidden costs or surprises",
+    "verified": true,
+    "status": "published"
+  },
+  {
+    "firstName": "Jian",
+    "lastInitial": "Z",
+    "rating": 5,
+    "reviewText": "Very trusted company to do business.",
+    "city": "Valdese",
+    "propertyType": "Land",
+    "closingMonthYear": "August 2026",
     "verified": true,
     "status": "published"
   }
