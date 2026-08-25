@@ -28,5 +28,16 @@
     "closingMonthYear": "August 2026",
     "verified": true,
     "status": "published"
+  },
+  {
+    "firstName": "B",
+    "lastInitial": "C",
+    "rating": 5,
+    "reviewText": "Great company to work with-from talking price with Lewis to the lawyers they chose to close with. Took less than 30 days to close and that was after working around a spell of rain that delayed us a week. 5/5 stars",
+    "city": "China Grove",
+    "propertyType": "Land",
+    "closingMonthYear": "August 2026",
+    "verified": true,
+    "status": "published"
   }
 ]
